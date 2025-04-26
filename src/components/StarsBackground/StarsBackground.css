@@ -1,0 +1,9 @@
+.stars-background {
+  position: fixed; /* Fixes the canvas to the viewport */
+  top: 0; /* Aligns to the top */
+  left: 0; /* Aligns to the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  z-index: -1; /* Places it behind other elements */
+  background: #0a0815; /* Default background color */
+}

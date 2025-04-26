@@ -1,0 +1,165 @@
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.5rem;
+  background-color: rgba(16, 16, 37, 0.9);
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(16, 16, 37, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+}
+
+/* User Avatar */
+.user-avatar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a754f2, #7e3af2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  background: rgba(16, 16, 37, 0.85);
+  padding: 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  min-width: 160px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.dropdown-icon {
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.user-avatar:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.dropdown-item {
+  color: white;
+  font-size: 0.9rem;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Center Logo */
+.navbar-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.navbar-logo-container:hover {
+  opacity: 0.9;
+}
+
+.navbar-logo-container:active {
+  opacity: 0.8;
+}
+
+.navbar-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #a754f2;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #a754f2, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a754f2;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover .logout-icon {
+  color: #c084fc;
+  transform: rotate(10deg);
+}
+.default-user-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover; /* Ensure the image scales correctly */
+}
+

@@ -1,0 +1,108 @@
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.content {
+  max-width: 800px;
+  text-align: center;
+  margin-top: -10px; /* Moves welcome section up */
+}
+
+.welcome-white {
+  font-size: 2.3rem;
+  color: white;
+}
+
+.welcome-gradient {
+  background: linear-gradient(to right, #a754f2, #7e3af2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.3rem;
+  text-shadow: 0 0 15px rgba(167, 84, 242, 0.6), 0 0 30px rgba(126, 58, 242, 0.4);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ac90cb;
+  max-width: 700px;
+  margin-bottom: 3.5rem; /* Increase spacing below */
+}
+
+/* Study Resources Section */
+.resources-container {
+  display: flex;
+  justify-content: space-between; /* Ensures even spacing */
+  align-items: center;
+  gap: 2rem;
+  width: 90%; /* Limits width so boxes don't reach screen edges */
+  margin: 0 auto; /* Centers them properly */
+}
+
+.card {
+  background: rgba(16, 16, 37, 0.85);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 25%; /* Reduced width */
+  height: 280px; /* Reduced height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(167, 84, 242, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Icon Circle Background */
+.icon-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.2);
+  margin: 0 auto 10px;
+}
+
+.resource-icon {
+  width: 32px;
+  height: 32px;
+  color: #c084fc;
+}
+
+/* Card Text */
+.card-title {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #c084fc; /* Changed description text color */
+}
+
+/* Buttons */
+.resource-btn {
+  background: linear-gradient(135deg, #a754f2, #7e3af2);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: auto; /* Moves button lower */
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.resource-btn:hover {
+  background: linear-gradient(135deg, #7e3af2, #a754f2);
+  transform: scale(1.05);
+}

@@ -1,0 +1,17 @@
+{
+    "name": "studhelp-server",
+    "version": "1.0.0",
+    "description": "Backend for StudHelp",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.21.2",
+        "mongoose": "^7.8.6"
+    }
+}
