@@ -23,10 +23,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-scripts start --prefix client",
+    "build": "react-scripts build --prefix client",
+    "test": "react-scripts test --prefix client",
+    "eject": "react-scripts eject --prefix client"
   },
   "eslintConfig": {
     "extends": [
