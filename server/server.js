@@ -2,12 +2,18 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path"; // <== Important for serving frontend
+import { fileURLToPath } from "url"; // <== Since you are using ES Modules
 import userRoutes from "./routes/userRoutes.js";
 
-// Load environment variables FIRST
-dotenv.config({ path: "./server/.env" }); // Adjusted path if needed
+// Setup for ES Modules (__dirname equivalent)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-console.log("MONGODB_URI:", process.env.MONGODB_URI); // Debug log
+// Load environment variables
+dotenv.config({ path: "./server/.env" });
+
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Backend API routes
 app.use("/api/users", userRoutes);
 
 // MongoDB connection
@@ -38,14 +44,18 @@ const connectDB = async () => {
   }
 };
 
-// Start server only after DB connection
+// Serve frontend static files
+const frontendBuildPath = path.join(__dirname, "../build");
+app.use(express.static(frontendBuildPath));
+
+// Handle any other routes by serving React's index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendBuildPath, "index.html"));
+});
+
+// Start server after DB connection
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
   });
-});
-
-// Test route
-app.get("/", (req, res) => {
-  res.send("API is running");
 });
