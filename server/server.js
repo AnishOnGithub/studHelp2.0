@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from "dotenv";
 import path from "path"; // <== Important for serving frontend
 import { fileURLToPath } from "url"; // <== Since you are using ES Modules
 import userRoutes from "./routes/userRoutes.js";
@@ -9,11 +8,6 @@ import userRoutes from "./routes/userRoutes.js";
 // Setup for ES Modules (__dirname equivalent)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// Load environment variables
-dotenv.config({ path: "./server/.env" });
-
-console.log("MONGODB_URI:", process.env.MONGODB_URI);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -28,11 +22,8 @@ app.use("/api/users", userRoutes);
 // MongoDB connection
 const connectDB = async () => {
   try {
-    if (!process.env.MONGODB_URI) {
-      throw new Error("MONGODB_URI is not defined in environment variables");
-    }
-
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+    const MONGODB_URI = "mongodb+srv://anish:anish@cluster0.elmkvv8.mongodb.net/"; // Replace this with your MongoDB URI
+    const conn = await mongoose.connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
